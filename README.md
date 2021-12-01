@@ -12,4 +12,4 @@
 
 |Build|Cppcheck|Codacy|
 |:--:|:--:|:--:|
-|[![Compile-Linux](https://github.com/KaaviyaP/EmbeddedC_255944/actions/workflows/Compile.yml/badge.svg)](https://github.com/KaaviyaP/EmbeddedC_255944/actions/workflows/Compile.yml)|[![Cppcheck](https://github.com/KaaviyaP/EmbeddedC_255944/actions/workflows/CodeQulaity.yml/badge.svg)](https://github.com/KaaviyaP/EmbeddedC_255944/actions/workflows/CodeQulaity.yml)|[![Codacy Badge](https://app.codacy.com/project/badge/Grade/4df432132abc420d9218bfddadf311e0)](https://www.codacy.com/gh/dilshadalam68/M2_Embedded_SeatHeatingApplication/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dilshadalam68/M2_Embedded_SeatHeatingApplication&amp;utm_campaign=Badge_Grade)
+![Image](https://app.codacy.com/gh/sababegums/M2-Embedded_SEAT-HEAT-MONITOR-AND-CONTROL-SYSTEM/dashboard?utm_source=github.com&utm_medium=referral&utm_content=sababegums/M2-Embedded_SEAT-HEAT-MONITOR-AND-CONTROL-SYSTEM&utm_campaign=Badge_Grade)
