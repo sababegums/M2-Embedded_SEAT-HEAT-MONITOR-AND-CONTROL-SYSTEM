@@ -1,134 +1,35 @@
-#include<avr/io.h>
-#include<avr/interrupt.h>
-#include "seat.h"
 /**
- * @brief Main function where the code execution starts
+ * @file SeatHeatingApp.c
  * 
- * @return  Return 0 if the program completes successfully
  */
+
+#include "activity1.h"
+#include "activity2.h"
+#include "activity3.h"
+#include "activity4.h"
 
 int main(void)
 {
-    initialise_ports_a1();
-    initialise_ports_a2();
-    initialise_ports_a3();
-    InitADC();
-    USARTInit(103);
     uint16_t temp;
-    int a=0;int b=0;int c=0;int d=0;int e=0;
+    
     while(1)
     {
-        if(!(PIND &(1<<PIND2)))
+        if(activity1_LED()==1) //Check if both the switches are pressed
         {
-            LED_PORTC2_HIGH();
-            if(!(PIND &(1<<PIND3)))
+           
+            TurnLED_ON();//Turn LED ON
+            temp=activity2_GetADC(); //Get the ADC value
+            activity3_PWM(temp); //PWM output based on temperature
+		    activity4_USARTWrite(temp); //To Serial monitor to print Temperature
+            
 
-            {
-                    temp=ReadADC(0);
-                    if(temp<895)
-                    {
-                        LED_PORTC3_HIGH();
-                        if(temp>0  && temp<250)
-                            {
-                                OCR1A=980;
-                                if(a==0)
-                                {
-                                 unsigned char data_value[]="TEMPERATURE IS BETWEEN -10 AND 0 DEG \n";int i=0;
-                                while(data_value[i]!=0)
-                              {
-
-                               USARTWrite(data_value[i]);
-                                i++;
-                                a++;
-                                b=0;c=0;d=0;e=0;
-                            }
-                                }
-                            }
-                            else if(temp>=250 && temp<500)
-                            {
-                                OCR1A=700;
-                                if(b==0)
-                                {
-                                  int i=0;
-                                 unsigned char data_value[]="TEMPERATURE IS BETWEEN 0 AND 10 DEG \n";   
-                                 while(data_value[i]!=0)
-                              {
-
-                               USARTWrite(data_value[i]);
-                                i++;
-                                b++;a=0;c=0;d=0;e=0;
-                            }
-                            }
-                            }
-                            else if(temp>=500 && temp<750)
-                            {
-                                OCR1A=400;
-                               if(c==0)
-                               {
-                                unsigned char data_value[]="TEMPERATURE IS BETWEEN 10 AND 20 DEG \n"; 
-                                int i=0;   
-                                while(data_value[i]!=0)
-                              {
-
-                               USARTWrite(data_value[i]);
-                                i++;
-                                c++;a=0;b=0;d=0;e=0;
-                            }
-                            }
-                            }
-                            else if(temp>=750 && temp<894)
-                            {
-                                OCR1A=200;
-                                if(d==0)
-                                {
-                                 int i=0;
-                                 unsigned char data_value[]="TEMPERATURE IS BETWEEN 20 AND 25 DEG \n";
-                                 while(data_value[i]!=0)
-                              {
-
-                               USARTWrite(data_value[i]);
-                                i++;
-                                d++;a=0;b=0;c=0;e=0;
-                            }
-                            }
-                    }
-                    }
-                    else
-                        {
-                        LED_PORTC3_LOW();
-                         OCR1A=0;
-                                if(e==0)
-                                {
-                                int i=0;
-                                 unsigned char data_value[]="TEMPERATURE IS ABOVE 25 DEG \n";
-                                 while(data_value[i]!=0)
-                              {
-
-                               USARTWrite(data_value[i]);
-                                i++;
-                                e++;a=0;b=0;c=0;d=0;
-                            }
-                            }
-
-                        }
-            }
-
-
-                else
-                    {
-                    OCR1A=0;
-                    LED_PORTC3_LOW();
-                    }
+        }
+        else  //in all other cases
+        {
+            TurnLED_OFF();//Turn LED OFF
+		    _delay_ms(200);
         }
 
-        else
-        {
-            LED_PORTC2_LOW();
-            LED_PORTC3_LOW();
-            OCR1A=0;
-        }
     }
-
-
- return 0;
+    return 0;
 }
