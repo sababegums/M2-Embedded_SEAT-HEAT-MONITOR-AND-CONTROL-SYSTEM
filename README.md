@@ -12,5 +12,7 @@
 
 |Build|Cppcheck|Codacy|
 |:--:|:--:|:--:|
-![Image](https://app.codacy.com/gh/sababegums/M2-Embedded_SEAT-HEAT-MONITOR-AND-CONTROL-SYSTEM/dashboard?utm_source=github.com&utm_medium=referral&utm_content=sababegums/M2-Embedded_SEAT-HEAT-MONITOR-AND-CONTROL-SYSTEM&utm_campaign=Badge_Grade)
+|[![CI](https://github.com/sababegums/M2-Embedded_Calculator/actions/workflows/main.yml/badge.svg)](https://github.com/sababegums/M2-Embedded_Calculator/actions/workflows/main.yml)|![cpp](https://img.shields.io/badge/Cppcheck-passing-brightgreen)|[![Codacy Badge](https://app.codacy.com/project/badge/Grade/5712e6b3bdf34d1b8c8288c8bbd92ced)](https://www.codacy.com/gh/sababegums/M2-Embedded_SEAT-HEAT-MONITOR-AND-CONTROL-SYSTEM/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sababegums/M2-Embedded_SEAT-HEAT-MONITOR-AND-CONTROL-SYSTEM&amp;utm_campaign=Badge_Grade)|
+
+
 
