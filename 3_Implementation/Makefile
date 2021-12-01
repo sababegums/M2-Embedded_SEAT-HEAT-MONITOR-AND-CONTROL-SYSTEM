@@ -1,18 +1,26 @@
-PROJ_NAME = SeatHeatMonitor
+PROJ_NAME = SeatHeatApp
 
 BUILD_DIR = Build
 
 # All Source code files
-SRC = src/seat.c
+SRC = SeatHeatingApp.c\
+src/activity1.c\
+src/activity2.c\
+src/activity3.c\
+src/activity4.c\
 
-# All header file paths
-INC = -I inc
+
+#Object copy to create hexfile
+OBJCOPY = avr-objcopy.exe
 
 #Avrdude
 AVRDUDE := avrdude
 
 #Options for HEX file generation
 HFLAGS = -j .text -j .data -O ihex
+
+# All header file paths
+INC = -I inc
 
 # Find out the OS and configure the variables accordingly
 ifdef OS	# All configurations for Windwos OS
@@ -43,9 +51,11 @@ endif
 all:$(BUILD_DIR)
 	# Compile the code and generate the ELF file
 	$(CC) -g -Wall -Os -mmcu=atmega328 -DF_CPU=16000000UL $(INC) $(SRC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
-	#create hex file
-	$(AVR_OBJ_CPY) $(HFLAGS) $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf) $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).hex)
 	
+hex: $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
+	#create hex file
+	$(OBJCOPY) $(HFLAGS) $< $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).hex)
+
 $(BUILD_DIR):
 	# Create directory to store the built files
 	mkdir $(BUILD_DIR)
@@ -60,8 +70,6 @@ doc:
 
 clean:
 	# Remove all the build files and generated document files
-	rm -rf Build
-
+	$(RM) $(call FixPath,$(BUILD_DIR)/*)
 	make -C documentation clean
-#rmdir $(BUILD_DIR)
-#$(RM) $(call FixPath,$(BUILD_DIR)/*)	
+	rmdir $(BUILD_DIR)
