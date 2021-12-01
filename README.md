@@ -1,5 +1,5 @@
 # M2-Embedded_SEAT-HEAT-MONITOR-AND-CONTROL-SYSTEM
-# M2_Embedded_SeatHeatingApplication
+
  
 ## Embedded C Programming - Seat Heating Application
 ## Activity-1 In Action
