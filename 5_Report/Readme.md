@@ -17,16 +17,16 @@ The heat control system is basically used to control the temperature of a car se
 ## SWOT ANALYSIS
 
 ### STRENGTHS 
- - Seats with individual heating systems.
- - The temperature range can easily be changed.
- - Easy to use.
+- Seats with individual heating systems.
+- The temperature range can easily be changed.
+- Easy to use.
  
 ### WEAKNESS
- - Usually recommended for countries with extreme cold temperatures
- - During this process, the engine needs to be on.
+Usually recommended for countries with extreme cold temperatures
+During this process, the engine needs to be on.
  
 ### THREATS
- - The seat can't be turned on before there is someone sitting on it.
+The seat can't be turned on before there is someone sitting on it.
 
 ## Structural Diagram
 
